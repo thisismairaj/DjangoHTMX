@@ -1,0 +1,28 @@
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    env_file:
+      - .env
+  web:
+    build: .
+    command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    restart: always 
+    environment:
+      - POSTGRES_NAME=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - SECRET_KEY=django-insecure-=a4_$vb!sdv$26eu8hj8mjj%o@7bxvv6_9&=r5vn+d7qve_la+
+    depends_on:
+      - db
+    env_file:
+      - .env

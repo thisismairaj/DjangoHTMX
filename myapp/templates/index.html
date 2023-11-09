@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="p-8 border border-slate-300 hover:border-indigo-300 mb-8">
+  <h2 class="font-semibold text-3xl mx-auto text-center">Search</h2>
+  <div id="search" class="my-3 bg-blue-200 p-4 shadow-l w-2/5 mx-auto">
+    {% include 'partials/search-form.html' %}
+  </div>
+
+  {% include 'partials/result.html' %}
+</div>
+
+<div class="p-8 border border-slate-300 hover:border-indigo-300 mb-8">
+  <h2 class="font-semibold text-3xl mx-auto text-center">Add people</h2>
+  <div id="person-forms">{% include 'partials/form.html' %}</div>
+
+  <div class="w-1/5">
+    <button
+      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full w-1/5 px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      hx-get="{% url 'create' %}"
+      hx-target="#person-forms"
+      hx-swap="beforeend"
+    >
+      + Add Form
+    </button>
+
+    <button
+      class="mt-2 text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full w-1/5 px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+      id="all"
+    >
+      Submit All
+    </button>
+  </div>
+</div>
+
+<div class="p-8 border border-slate-300 hover:border-indigo-300" id="persons">
+  {% for person in persons %} {% include 'partials/person.html' %} {% endfor %}
+</div>
+{% endblock %}

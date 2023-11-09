@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Welcome to People Directory</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/htmx/1.9.6/htmx.min.js"
+      integrity="sha512-tGWc4YBM6ag1pJndcieiU2r+lJXdzBRk70mHE13JoGeZI/QdWQkQ6q1CL1xYdJtTOfARf5oPcxJCnS6bLaM+KA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+
+  <body>
+    <h1
+      class="text-center text-5xl font-bold my-10 text-orange-600 drop-shadow-lg"
+    >
+      Welcome to People Directory
+    </h1>
+
+    <div
+      class="container bg-blue-100 shadow-xl w-full mx-auto my-4 p-11 rounded"
+    >
+      {% block content %} {% endblock %}
+    </div>
+  </body>
+</html>

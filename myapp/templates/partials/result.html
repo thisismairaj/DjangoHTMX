@@ -1,0 +1,15 @@
+{% if query and results %}
+<h3 class="font-semibold text-3xl mx-auto m-4 p-4 text-center">
+  {% if query.name or query.email %} {{results_count}} Result Found{% endif %}
+</h3>
+<ul id="persons">
+  {% for person in results %} {% include 'partials/person.html' %} {% endfor %}
+</ul>
+{% elif query %}
+
+<h4 class="font-semibold text-2xl mx-auto m-4 p-4 text-center">
+  No results match <strong>{{ query.name }}</strong> &
+  <strong>{{ query.email}}</strong>
+</h4>
+
+{% endif %}

@@ -1,0 +1,27 @@
+<form method="get" action="/" class="w-full max-w-lg">
+  <div class="flex flex-wrap -mx-3 mb-3">
+    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <label
+        id="{{search_form.name.id_for_label}}"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >{{search_form.name.label}}:
+      </label>
+      {{search_form.name}}
+    </div>
+    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <label
+        id="{{search_form.email.id_for_label}}"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >{{search_form.email.label}}:
+      </label>
+      {{search_form.email}}
+    </div>
+    <input
+      type="submit"
+      value="Search"
+      class="mx-auto text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 mt-3"
+    />
+  </div>
+</form>
+
+<div id="results"></div>
